@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mantra MN — A Creative Company</title>
+<meta name="description" content="Mantra Media Network builds brands, produces entertainment, develops technology, launches platforms, and invests in creative IP.">
+<link rel="icon" type="image/png" href="https://www.mantramn.com/wp-content/uploads/2024/08/LogoBlanco-1.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mantra MN — A Creative Company">
+<meta property="og:description" content="Mantra Media Network builds brands, produces entertainment, develops technology, launches platforms, and invests in creative IP.">
+<meta property="og:image" content="https://www.mantramn.com/wp-content/uploads/2024/08/LogoBlanco-1.png">
+<meta property="og:url" content="https://www.mantramn.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mantra MN — A Creative Company">
+<meta name="twitter:description" content="Mantra Media Network builds brands, produces entertainment, develops technology, launches platforms, and invests in creative IP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Sacramento&family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-dark:#15100d;
+    --bg-dark-2:#1c140f;
+    --panel-dark:#211710;
+    --cream:#f7f1e6;
+    --cream-dim:rgba(247,241,230,.62);
+    --cream-faint:rgba(247,241,230,.32);
+    --ink:#241a12;
+    --ink-dim:rgba(36,26,18,.62);
+    --ink-faint:rgba(36,26,18,.36);
+    --gold:#dba85a;
+    --amber:#c9793d;
+    --terracotta:#9c5b33;
+    --line-dark:rgba(247,241,230,.12);
+    --line-light:rgba(36,26,18,.12);
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg-dark);
+    color:var(--cream);
+    overflow-x:hidden;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--gold);color:var(--bg-dark);}
+
+  h1,h2,h3,.serif{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    letter-spacing:-.01em;
+  }
+
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:.7rem;
+    font-weight:500;
+  }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+
+  @media(prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- progress bar ---------- */
+  #progress{
+    position:fixed;top:0;left:0;height:2px;width:0%;
+    background:linear-gradient(90deg,var(--terracotta),var(--gold));
+    z-index:200;
+    transition:width .08s linear;
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:150;
+    padding:26px 6vw;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:padding .4s var(--ease),background .4s var(--ease),backdrop-filter .4s var(--ease);
+  }
+  header.scrolled{
+    padding:16px 6vw;
+    background:rgba(21,16,13,.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo img{height:38px;width:auto;opacity:.95;transition:height .4s var(--ease);}
+  header.scrolled .logo img{height:30px;}
+  .logo span{
+    font-family:'Fraunces',serif;
+    font-size:1.05rem;
+    letter-spacing:.03em;
+    color:var(--cream);
+  }
+  nav.links{display:flex;align-items:center;gap:36px;}
+  nav.links a{
+    font-size:.78rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--cream-dim);
+    position:relative;
+    padding-bottom:4px;
+    transition:color .3s;
+  }
+  nav.links a::after{
+    content:'';position:absolute;left:0;bottom:0;height:1px;width:0%;
+    background:var(--gold);transition:width .35s var(--ease);
+  }
+  nav.links a:hover{color:var(--cream);}
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    border:1px solid rgba(219,168,90,.55);
+    padding:9px 20px;border-radius:999px;
+    font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold);
+    transition:.35s var(--ease);
+  }
+  .nav-cta:hover{background:var(--gold);color:var(--bg-dark);border-color:var(--gold);}
+  @media(max-width:860px){ nav.links a:not(.nav-cta){display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    display:flex;flex-direction:column;
+    overflow:hidden;
+    padding-top:150px;
+  }
+  .orb{
+    position:absolute;border-radius:50%;
+    filter:blur(90px);
+    opacity:.35;
+    pointer-events:none;
+    animation:drift 26s ease-in-out infinite;
+  }
+  .orb.o1{width:520px;height:520px;background:radial-gradient(circle,var(--amber),transparent 70%);top:-10%;left:-8%;}
+  .orb.o2{width:460px;height:460px;background:radial-gradient(circle,var(--gold),transparent 70%);bottom:-18%;left:12%;animation-delay:-9s;}
+  .orb.o3{width:360px;height:360px;background:radial-gradient(circle,var(--terracotta),transparent 70%);top:35%;left:45%;animation-delay:-16s;opacity:.22;}
+  @keyframes drift{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(30px,-40px) scale(1.08);}
+  }
+
+  .grain{
+    position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    z-index:2;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .hero-photo{
+    position:absolute;inset:0;z-index:1;
+    overflow:hidden;
+    opacity:0;animation:photo-in 1.4s var(--ease) forwards .3s;
+  }
+  .hero-photo img{
+    width:100%;height:100%;object-fit:contain;object-position:center center;
+    filter:grayscale(.5) sepia(.16) saturate(1.05) contrast(1.08) brightness(.46);
+    mask-image:radial-gradient(ellipse 70% 64% at center,black 20%,transparent 92%);
+    -webkit-mask-image:radial-gradient(ellipse 70% 64% at center,black 20%,transparent 92%);
+  }
+  .hero-photo::before{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(90deg,rgba(21,16,13,.6) 0%,rgba(21,16,13,.5) 50%,rgba(21,16,13,.58) 100%),
+      linear-gradient(180deg,rgba(21,16,13,.6) 0%,rgba(21,16,13,.05) 22%,rgba(21,16,13,.1) 68%,rgba(21,16,13,.7) 100%),
+      linear-gradient(160deg,rgba(201,121,61,.14),rgba(21,16,13,.3));
+    z-index:1;
+  }
+  @keyframes photo-in{from{opacity:0;transform:scale(1.02);}to{opacity:1;transform:scale(1);}}
+
+  .hero-inner{position:relative;z-index:2;max-width:680px;margin:0;}
+  .hero-brand{margin-bottom:30px;opacity:0;transform:translateY(10px);animation:rise .9s var(--ease) forwards .1s;}
+  .hero-brand-name{
+    display:block;font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(1.3rem,2.2vw,1.8rem);letter-spacing:.02em;
+    color:var(--gold);line-height:1;
+  }
+  .hero-brand-sub{
+    display:block;margin-top:8px;font-family:'Inter',sans-serif;
+    text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;
+    font-weight:500;color:var(--cream-faint);
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,4.2vw,3.2rem);
+    line-height:1.15;
+    color:var(--cream);
+  }
+  .hero h1 .line{display:block;overflow:hidden;}
+  .hero h1 .line span{display:block;opacity:0;transform:translateY(115%);animation:rise 1s var(--ease) forwards;}
+  .hero h1 .line:nth-child(1) span{animation-delay:.22s;}
+  .hero h1 .line:nth-child(2) span{animation-delay:.36s;}
+  .hero h1 .line:nth-child(3) span{animation-delay:.5s;color:var(--gold);}
+  .hero p.sub{
+    margin-top:34px;max-width:34em;
+    font-size:clamp(1rem,1.5vw,1.15rem);
+    color:var(--cream-dim);font-weight:300;line-height:1.6;
+    opacity:0;transform:translateY(10px);animation:rise .9s var(--ease) forwards .75s;
+  }
+  .hero .scrollcue{
+    margin-top:64px;display:flex;align-items:center;gap:12px;
+    opacity:0;animation:rise .9s var(--ease) forwards .95s;
+  }
+  .scrollcue a{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);border-bottom:1px solid var(--line-dark);padding-bottom:4px;transition:.3s;}
+  .scrollcue a:hover{color:var(--gold);border-color:var(--gold);}
+  .chev{width:14px;height:14px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);transform:rotate(45deg);animation:bob 2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(45deg);}50%{transform:translateY(6px) rotate(45deg);}}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  /* marquee */
+  .marquee{
+    position:relative;z-index:2;border-top:1px solid var(--line-dark);
+    padding:20px 0;overflow:hidden;white-space:nowrap;margin-top:70px;
+  }
+  .marquee .track{display:inline-block;padding-left:100%;animation:scroll-left 34s linear infinite;}
+  .marquee span{
+    display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--cream-faint);margin-right:48px;
+  }
+  .marquee span.dot{color:var(--gold);}
+  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-100%);}}
+
+  /* ---------- sections ---------- */
+  section{position:relative;padding:min(16vw,150px) 0;}
+  .section-dark{background:var(--bg-dark-2);color:var(--cream);}
+  .section-light{background:var(--cream);color:var(--ink);}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal-delay-1.in{transition-delay:.12s;}
+  .reveal-delay-2.in{transition-delay:.24s;}
+
+  /* manifesto */
+  .manifesto{text-align:center;max-width:840px;margin:0 auto;}
+  .manifesto .eyebrow{color:var(--amber);justify-content:center;display:flex;margin-bottom:28px;}
+  .manifesto blockquote{
+    font-size:clamp(1.5rem,3.4vw,2.5rem);
+    line-height:1.4;font-weight:400;font-style:italic;color:var(--ink);
+  }
+  .manifesto footer{margin-top:30px;font-family:'Inter';font-size:.85rem;color:var(--ink-dim);font-style:normal;}
+
+  /* pillar sections */
+  .pillar{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;}
+  .pillar.reverse .pillar-visual{order:2;}
+  .pillar.reverse .pillar-text{order:1;}
+  @media(max-width:860px){
+    .pillar{grid-template-columns:1fr;gap:48px;}
+    .pillar.reverse .pillar-visual,.pillar.reverse .pillar-text{order:initial;}
+  }
+  .pillar-num{
+    font-family:'Fraunces';font-size:.9rem;letter-spacing:.08em;
+    color:var(--amber);margin-bottom:18px;display:block;
+  }
+  .pillar-text h2{font-size:clamp(1.9rem,3.4vw,2.9rem);margin-bottom:24px;line-height:1.15;}
+  .pillar-text p{font-size:1.05rem;line-height:1.75;font-weight:300;max-width:34em;}
+  .section-dark .pillar-text p{color:var(--cream-dim);}
+  .section-light .pillar-text p{color:var(--ink-dim);}
+  .tag-row{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;}
+  .tag{
+    font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 14px;border-radius:999px;border:1px solid;
+  }
+  .section-dark .tag{border-color:var(--line-dark);color:var(--cream-faint);}
+  .section-light .tag{border-color:var(--line-light);color:var(--ink-faint);}
+
+  .pillar-visual{
+    position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .section-dark .pillar-visual{background:linear-gradient(160deg,var(--panel-dark),var(--bg-dark));border:1px solid var(--line-dark);}
+  .section-light .pillar-visual{background:linear-gradient(160deg,#efe6d5,#f7f1e6);border:1px solid var(--line-light);}
+  .pillar-visual .ghost{
+    font-family:'Fraunces';font-weight:300;font-size:clamp(3.5rem,9vw,7rem);
+    letter-spacing:-.02em;
+  }
+  .section-dark .pillar-visual .ghost{color:rgba(247,241,230,.05);}
+  .section-light .pillar-visual .ghost{color:rgba(36,26,18,.05);}
+  .pillar-visual .glow{
+    position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(70px);opacity:.4;
+  }
+  .p-studio .glow{background:var(--amber);top:10%;left:10%;}
+  .p-label .glow{background:var(--gold);bottom:10%;right:10%;}
+  .p-platforms .glow{background:var(--terracotta);top:15%;right:15%;}
+  .p-ventures .glow{background:var(--amber);bottom:15%;left:15%;}
+  .p-publishing .glow{background:var(--gold);top:12%;left:18%;}
+  .soul-mark-wrap{
+    position:relative;z-index:2;width:200px;height:200px;border-radius:50%;
+    background:#0c0a09;border:1px solid rgba(247,241,230,.25);overflow:hidden;
+  }
+  .soul-staff span{position:absolute;left:13%;right:13%;height:1px;background:rgba(247,241,230,.16);}
+  .soul-staff span:nth-child(1){top:39%;}
+  .soul-staff span:nth-child(2){top:45.5%;}
+  .soul-staff span:nth-child(3){top:52%;}
+  .soul-staff span:nth-child(4){top:58.5%;}
+  .soul-staff span:nth-child(5){top:65%;}
+  .soul-img{position:absolute;left:11%;top:6%;width:75%;height:auto;z-index:2;}
+  .soul-script{
+    position:absolute;left:36%;top:50%;z-index:3;
+    font-family:'Sacramento',cursive;color:#f7f1e6;font-size:22px;
+    letter-spacing:.01em;
+  }
+  .brand-mark{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+  .soul-mark-wrap.mini{width:58px;height:58px;flex-shrink:0;}
+  .soul-mark-wrap.mini .soul-script{font-size:10px;}
+  .brand-mark .pillar-num{margin-bottom:0;}
+  .pillar-visual .badge{
+    position:relative;z-index:2;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;
+    padding:10px 18px;border:1px solid var(--line-light);border-radius:999px;
+  }
+
+  /* PULZ Music showcase */
+  .pulz-stage{
+    background:radial-gradient(circle at 50% 45%,#211018,var(--bg-dark) 72%) !important;
+    flex-direction:column;gap:26px;
+  }
+  .pulz-ping{
+    position:absolute;left:50%;top:44%;width:90px;height:90px;margin:-45px 0 0 -45px;
+    border-radius:50%;border:1px solid rgba(225,79,131,.45);
+    animation:pulz-ping 3.6s ease-out infinite;
+  }
+  .pulz-ping.p2{animation-delay:1.2s;}
+  .pulz-ping.p3{animation-delay:2.4s;}
+  @keyframes pulz-ping{
+    0%{transform:scale(.6);opacity:.65;}
+    100%{transform:scale(5.2);opacity:0;}
+  }
+  .pulz-logo{position:relative;z-index:2;display:flex;align-items:center;gap:16px;}
+  .pulz-rings{overflow:visible;flex-shrink:0;}
+  .pulz-rings .ring{fill:none;stroke:#e14f83;}
+  .pulz-rings .r4{stroke-opacity:.2;}
+  .pulz-rings .r3{stroke-opacity:.4;}
+  .pulz-rings .r2{stroke-opacity:.7;}
+  .pulz-rings .dot{fill:#e14f83;}
+  .pulz-word{
+    font-family:'Inter',sans-serif;font-weight:800;font-size:2.3rem;
+    letter-spacing:-.01em;color:#e75d90;
+    text-shadow:0 0 26px rgba(225,79,131,.5);
+  }
+  .pulz-sub{
+    font-family:'Inter',sans-serif;font-weight:300;font-size:1.05rem;
+    letter-spacing:.32em;color:var(--cream-faint);margin-left:-6px;
+  }
+  .pulz-tag{
+    position:relative;z-index:2;font-size:.68rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--cream-faint);
+  }
+
+  /* Label reel */
+  .label-reel{position:absolute;inset:0;}
+  .label-reel video{
+    width:100%;height:100%;object-fit:cover;
+    filter:saturate(1.05) contrast(1.04) brightness(.94);
+  }
+  .label-reel::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(160deg,rgba(201,121,61,.16),rgba(21,16,13,.4));
+  }
+
+  /* Studio reel */
+  .studio-reel{position:absolute;inset:0;}
+  .studio-reel video{
+    width:100%;height:100%;object-fit:cover;
+    filter:saturate(1.08) contrast(1.05) brightness(.92);
+  }
+  .studio-reel::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(160deg,rgba(219,168,90,.14),rgba(21,16,13,.42));
+  }
+
+  /* Publishing photo */
+  .publishing-photo{position:absolute;inset:0;}
+  .publishing-photo img{
+    width:100%;height:100%;object-fit:cover;object-position:68% 32%;
+    filter:saturate(1.05) contrast(1.04) brightness(.88);
+  }
+  .publishing-photo::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(160deg,rgba(219,168,90,.16),rgba(21,16,13,.46));
+  }
+
+  /* Cuéntamelo Cantando proof card */
+  .cc-proof{flex-direction:column;gap:22px;}
+  .cc-disc-link{display:block;transition:transform .5s var(--ease);}
+  .cc-disc-link:hover{transform:scale(1.04) rotate(-2deg);}
+  .cc-disc{width:clamp(150px,22vw,220px);height:auto;opacity:.96;filter:drop-shadow(0 18px 30px rgba(36,26,18,.18));}
+  .cc-stat{text-align:center;}
+  .cc-num{font-family:'Fraunces',serif;font-size:2.6rem;color:var(--ink);display:block;line-height:1;}
+  .cc-label{font-size:.8rem;color:var(--ink-dim);margin-top:6px;display:block;}
+  .cc-divider{width:36px;height:1px;background:var(--line-light);}
+  .cc-name{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);}
+
+  .cc-invite{
+    margin-top:28px;font-size:1rem;line-height:1.65;font-weight:400;
+    color:var(--ink);font-style:italic;font-family:'Fraunces',serif;
+    max-width:32em;
+  }
+  .cc-cta{
+    display:inline-flex;align-items:center;gap:10px;margin-top:22px;
+    padding:14px 30px;border-radius:999px;
+    background:linear-gradient(120deg,var(--terracotta),var(--amber));
+    color:var(--cream);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+    transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+  }
+  .cc-cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(201,121,61,.5);}
+  .cc-cta .arrow{transition:transform .4s var(--ease);}
+  .cc-cta:hover .arrow{transform:translateX(3px);}
+
+  /* closing */
+  .closing{text-align:center;background:var(--bg-dark);}
+  .closing .wrap{max-width:760px;}
+  .closing h2{
+    font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.25;color:var(--cream);
+    font-style:italic;font-weight:400;
+  }
+  .closing p{margin-top:26px;color:var(--cream-dim);font-size:1.05rem;}
+  .closing .cta{
+    display:inline-block;margin-top:44px;
+    padding:16px 38px;border-radius:999px;
+    background:linear-gradient(120deg,var(--terracotta),var(--amber));
+    color:var(--bg-dark);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+    transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+  }
+  .closing .cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(201,121,61,.55);}
+
+  /* footer */
+  footer.site-footer{
+    background:var(--bg-dark);border-top:1px solid var(--line-dark);
+    padding:70px 0 34px;
+  }
+  .footer-top{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding-bottom:50px;
+  }
+  .footer-logo-big{position:relative;display:inline-flex;margin-bottom:22px;}
+  .footer-logo-glow{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(circle,var(--amber) 0%,var(--gold) 32%,transparent 68%);
+    filter:blur(60px);opacity:.45;pointer-events:none;
+  }
+  .footer-logo-big img{position:relative;z-index:2;height:76px;width:auto;filter:drop-shadow(0 0 30px rgba(219,168,90,.28));}
+  .footer-brand p{max-width:320px;color:var(--cream-faint);font-size:.9rem;line-height:1.6;}
+  .footer-col h4{
+    font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-faint);margin-bottom:16px;
+  }
+  .footer-col a,.footer-col p{
+    display:block;color:var(--cream-dim);font-size:.9rem;margin-bottom:10px;
+  }
+  .footer-col a:hover{color:var(--gold);}
+  .footer-bottom{
+    border-top:1px solid var(--line-dark);padding-top:28px;
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
+    font-size:.78rem;color:var(--cream-faint);
+  }
+  .footer-bottom .socials{display:flex;gap:22px;}
+  .footer-bottom .socials a:hover{color:var(--gold);}
+
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--bg-dark);}
+  ::-webkit-scrollbar-thumb{background:var(--panel-dark);border-radius:10px;}
+
+  /* ---------- contact view ---------- */
+  #contactView{position:relative;overflow:hidden;padding:170px 0 110px;min-height:100vh;background:var(--bg-dark);}
+  .contact-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.15fr;gap:8vw;align-items:start;}
+  @media(max-width:900px){ .contact-grid{grid-template-columns:1fr;gap:48px;} }
+
+  .contact-intro h1{font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1.15;color:var(--cream);margin:22px 0;}
+  .contact-intro p{font-size:1.05rem;line-height:1.75;color:var(--cream-dim);max-width:30em;}
+  .contact-direct{margin-top:44px;padding-top:28px;border-top:1px solid var(--line-dark);}
+  .contact-direct span{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-faint);margin-bottom:10px;}
+  .contact-direct a{display:inline-block;font-size:1rem;color:var(--cream);border-bottom:1px solid var(--line-dark);padding-bottom:2px;margin-top:6px;transition:.3s;}
+  .contact-direct a:hover{color:var(--gold);border-color:var(--gold);}
+
+  #contactView form{position:relative;}
+  .field{margin-bottom:26px;}
+  .field label{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-faint);margin-bottom:10px;}
+  .field input[type=text],.field input[type=email],.field textarea{
+    width:100%;background:transparent;border:none;border-bottom:1px solid var(--line-dark);
+    color:var(--cream);font-family:'Inter',sans-serif;font-size:1.05rem;font-weight:300;
+    padding:10px 2px;transition:border-color .3s;
+  }
+  .field textarea{resize:vertical;min-height:96px;line-height:1.6;}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
+  .field input::placeholder,.field textarea::placeholder{color:var(--cream-faint);}
+
+  .pill-group{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill-group input{position:absolute;opacity:0;width:0;height:0;}
+  .pill-group label{
+    cursor:pointer;font-size:.78rem;letter-spacing:.04em;
+    padding:10px 18px;border-radius:999px;border:1px solid var(--line-dark);
+    color:var(--cream-dim);transition:.3s var(--ease);
+  }
+  .pill-group input:checked + label{background:linear-gradient(120deg,var(--terracotta),var(--amber));border-color:transparent;color:var(--cream);}
+  .pill-group label:hover{border-color:var(--gold);color:var(--cream);}
+
+  .submit-btn{
+    display:inline-flex;align-items:center;gap:10px;margin-top:12px;
+    padding:15px 34px;border-radius:999px;border:none;cursor:pointer;
+    background:linear-gradient(120deg,var(--terracotta),var(--amber));
+    color:var(--cream);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+    font-family:'Inter',sans-serif;transition:transform .4s var(--ease),box-shadow .4s var(--ease),opacity .3s;
+  }
+  .submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(201,121,61,.55);}
+  .submit-btn:disabled{opacity:.6;cursor:default;transform:none;box-shadow:none;}
+  .form-note{margin-top:16px;font-size:.78rem;color:var(--cream-faint);}
+  .form-error{display:none;margin-top:16px;font-size:.85rem;color:#e79a7a;}
+  .success{display:none;text-align:left;padding:10px 0;}
+  .success .serif{font-size:1.6rem;color:var(--cream);margin-bottom:14px;}
+  .success p{color:var(--cream-dim);font-size:1rem;line-height:1.7;max-width:28em;}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header id="siteHeader">
+  <a href="#top" class="logo">
+    <img src="https://www.mantramn.com/wp-content/uploads/2024/08/LogoBlanco-1.png" alt="Mantra MN">
+    <span>MANTRA</span>
+  </a>
+  <nav class="links">
+    <a href="#studio">Studio</a>
+    <a href="#label">Label</a>
+    <a href="#platforms">Platforms</a>
+    <a href="#ventures">Ventures</a>
+    <a href="#publishing">Publishing</a>
+    <a href="#contact-page" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+    <div class="hero-photo">
+      <img src="team-photo.png" alt="The Mantra Media Network team">
+    </div>
+    <div class="grain"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-brand">
+        <span class="hero-brand-name">Mantra</span>
+        <span class="hero-brand-sub">Media Network</span>
+      </div>
+      <h1>
+        <span class="line"><span>Ideas become brands.</span></span>
+        <span class="line"><span>Artists become careers.</span></span>
+        <span class="line"><span>Creativity becomes culture.</span></span>
+      </h1>
+      <p class="sub">Mantra is a creative company that builds brands, produces entertainment, develops technology, and invests in the platforms and ideas it helps create.</p>
+      <div class="scrollcue">
+        <span class="chev"></span>
+        <a href="#manifesto">What we believe</a>
+      </div>
+    </div>
+    <div class="marquee">
+      <div class="track">
+        <span>Studio</span><span class="dot">—</span>
+        <span>Label</span><span class="dot">—</span>
+        <span>Platforms</span><span class="dot">—</span>
+        <span>Ventures</span><span class="dot">—</span>
+        <span>Publishing</span><span class="dot">—</span>
+        <span>Studio</span><span class="dot">—</span>
+        <span>Label</span><span class="dot">—</span>
+        <span>Platforms</span><span class="dot">—</span>
+        <span>Ventures</span><span class="dot">—</span>
+        <span>Publishing</span><span class="dot">—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="section-light" id="manifesto">
+    <div class="wrap manifesto reveal">
+      <div class="eyebrow">Why we exist</div>
+      <blockquote>"We believe creativity deserves more than a good idea — it deserves thoughtful strategy, honest storytelling, and the technology to help it reach the people who need to find it."</blockquote>
+      <footer>This is the belief every project at Mantra starts from.</footer>
+    </div>
+  </section>
+
+  <!-- STUDIO -->
+  <section class="section-dark" id="studio">
+    <div class="wrap pillar p-studio">
+      <div class="pillar-visual reveal">
+        <div class="studio-reel">
+          <video src="studio-reel.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="pillar-text reveal reveal-delay-1">
+        <span class="pillar-num">01 — Studio</span>
+        <h2>We create brands.</h2>
+        <p>Every brand starts as a feeling before it becomes a name. We work with founders, artists, and companies to shape that feeling into an identity people trust — strategy, visual identity, and storytelling built to last, not to trend.</p>
+        <div class="tag-row">
+          <span class="tag">Brand strategy</span>
+          <span class="tag">Identity</span>
+          <span class="tag">Creative direction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LABEL -->
+  <section class="section-light" id="label">
+    <div class="wrap pillar reverse p-label">
+      <div class="pillar-visual reveal">
+        <div class="label-reel">
+          <video src="label-reel.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="pillar-text reveal reveal-delay-1">
+        <span class="pillar-num">02 — Label</span>
+        <h2>We produce entertainment.</h2>
+        <p>Mantra Records exists to give artists room to become who they're meant to be — real development, real production, and a partnership built on trust. We work with artists because we believe in them, not just the songs they release.</p>
+        <div class="tag-row">
+          <span class="tag">Artist development</span>
+          <span class="tag">Music production</span>
+          <span class="tag">A&amp;R</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS -->
+  <section class="section-dark" id="platforms">
+    <div class="wrap pillar p-platforms">
+      <div class="pillar-visual pulz-stage reveal">
+        <div class="pulz-ping p1" aria-hidden="true"></div>
+        <div class="pulz-ping p2" aria-hidden="true"></div>
+        <div class="pulz-ping p3" aria-hidden="true"></div>
+        <div class="pulz-logo">
+          <svg class="pulz-rings" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+            <circle cx="24" cy="24" r="21" class="ring r4"></circle>
+            <circle cx="24" cy="24" r="14" class="ring r3"></circle>
+            <circle cx="24" cy="24" r="8" class="ring r2"></circle>
+            <circle cx="24" cy="24" r="3.2" class="dot"></circle>
+          </svg>
+          <span class="pulz-word">PULZ</span>
+          <span class="pulz-sub">MUSIC</span>
+        </div>
+        <span class="pulz-tag">Live now</span>
+      </div>
+      <div class="pillar-text reveal reveal-delay-1">
+        <span class="pillar-num">03 — Platforms</span>
+        <h2>We develop technology.</h2>
+        <p>PULZ Music is where that belief becomes a product — a direct line between emerging Latin artists and the fans who champion them: discovery, community, direct fan support, and rewards for the people who show up. It's live today, already home to real artists building real careers — and our next artist launch is coming soon. Stay tuned.</p>
+        <div class="tag-row">
+          <span class="tag">PULZ Music</span>
+          <span class="tag">Artist discovery</span>
+          <span class="tag">Direct fan support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTURES -->
+  <section class="section-light" id="ventures">
+    <div class="wrap pillar reverse p-ventures">
+      <div class="pillar-visual reveal cc-proof">
+        <div class="glow"></div>
+        <a class="cc-disc-link" href="https://www.cuentamelocantando.com/contest" target="_blank" rel="noopener">
+          <img class="cc-disc" src="https://www.cuentamelocantando.com/img/brand/cuentamelo-disc.svg" alt="Cuéntamelo Cantando — visit the contest site">
+        </a>
+        <div class="cc-stat">
+          <span class="cc-num">9.2M+</span>
+          <span class="cc-label">impressions, season one</span>
+        </div>
+        <div class="cc-divider"></div>
+        <span class="cc-name">Cuéntamelo Cantando</span>
+      </div>
+      <div class="pillar-text reveal reveal-delay-1">
+        <span class="pillar-num">04 — Ventures</span>
+        <h2>We invest in what we create.</h2>
+        <p>We don't just work for creativity — we invest in it. Cuéntamelo Cantando, our singer-songwriter contest, is where that starts: each season's winner signs an artistic development contract with Mantra — real investment, real production, a real stake in what happens next. Season one's winner is already a working artist, with a released single and a place on PULZ Music. That's the difference between a company that provides services and one that builds a lasting body of work.</p>
+        <div class="tag-row">
+          <span class="tag">Cuéntamelo Cantando</span>
+          <span class="tag">Development contracts</span>
+          <span class="tag">Creative IP</span>
+        </div>
+        <p class="cc-invite">Have a song and a story worth telling? Cuéntamelo Cantando is open for entries — free to join, and it could be the start of your career.</p>
+        <a href="https://www.cuentamelocantando.com/contest" target="_blank" rel="noopener" class="cc-cta">Enter the contest <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLISHING -->
+  <section class="section-dark" id="publishing">
+    <div class="wrap pillar p-publishing">
+      <div class="pillar-visual reveal">
+        <div class="publishing-photo">
+          <img src="publishing-photo.jpg" alt="A songwriter performing live at an intimate venue">
+        </div>
+      </div>
+      <div class="pillar-text reveal reveal-delay-1">
+        <div class="brand-mark">
+          <div class="soul-mark-wrap mini">
+            <div class="soul-staff"><span></span><span></span><span></span><span></span><span></span></div>
+            <img class="soul-img" src="soul-mark.png" alt="Soul Writing">
+            <span class="soul-script">Writing</span>
+          </div>
+          <span class="pillar-num">05 — Publishing</span>
+        </div>
+        <h2>We publish songwriters.</h2>
+        <p>Soul Writing is Mantra's publishing arm, built on a simple belief: a song starts with someone who felt something and had to write it down. We manage rights fairly, open doors to real recording opportunities, and build marketing support around the songs and the people who write them. The craft comes first; the business exists to protect it.</p>
+        <div class="tag-row">
+          <span class="tag">Publishing</span>
+          <span class="tag">Rights management</span>
+          <span class="tag">Songwriter development</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <div class="wrap reveal">
+      <h2>Mantra isn't a company you hire. It's one you build alongside.</h2>
+      <p>If you're building something that matters — a brand, an artist, a platform, an idea — we'd like to hear about it.</p>
+      <a href="#contact-page" class="cta">Start a conversation</a>
+    </div>
+  </section>
+
+</main>
+
+<section id="contactView" style="display:none">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="wrap contact-grid">
+    <div class="contact-intro">
+      <span class="eyebrow" style="color:var(--gold)">Start a conversation</span>
+      <h1>Tell us what you're building.</h1>
+      <p>A brand, an artist, a platform, an idea — whatever stage it's at, we'd like to hear about it. A few lines is plenty to start.</p>
+      <div class="contact-direct">
+        <span>Prefer email or phone</span>
+        <a href="mailto:info@mantramn.com">info@mantramn.com</a><br>
+        <a href="tel:+13055880282">+1 305 588-0282</a>
+      </div>
+    </div>
+
+    <div>
+      <form id="contactForm" action="https://formsubmit.co/ajax/info@mantramn.com" method="POST">
+        <input type="hidden" name="_subject" value="New inquiry from mantramn.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="Name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" placeholder="you@email.com" required>
+        </div>
+        <div class="field">
+          <label>What are you?</label>
+          <div class="pill-group">
+            <input type="radio" id="p1" name="I am a" value="Brand" checked><label for="p1">Brand</label>
+            <input type="radio" id="p2" name="I am a" value="Artist"><label for="p2">Artist</label>
+            <input type="radio" id="p3" name="I am a" value="Platform / partnership"><label for="p3">Platform / partnership</label>
+            <input type="radio" id="p4" name="I am a" value="Investment"><label for="p4">Investment</label>
+            <input type="radio" id="p5" name="I am a" value="Something else"><label for="p5">Something else</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" placeholder="Tell us what you're building..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn"><span>Send message</span> <span id="btnArrow">→</span></button>
+        <div class="form-note">We read every message and reply personally — usually within a couple of days.</div>
+        <div class="form-error" id="formError">Something went wrong sending that. Try again, or email us directly at info@mantramn.com.</div>
+      </form>
+      <div class="success" id="successMsg">
+        <div class="serif">Got it — thank you.</div>
+        <p>Your message is on its way to our team. We read everything personally and we'll be in touch soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo footer-logo-big">
+          <span class="footer-logo-glow"></span>
+          <img src="https://www.mantramn.com/wp-content/uploads/2024/08/LogoBlanco-1.png" alt="Mantra Media Network">
+        </a>
+        <p>A creative company building brands, artists, technology, and ideas worth investing in.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#studio">Studio</a>
+        <a href="#label">Label</a>
+        <a href="#platforms">Platforms</a>
+        <a href="#ventures">Ventures</a>
+        <a href="#publishing">Publishing</a>
+        <a href="#contact-page">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Miami, United States</p>
+        <a href="mailto:info@mantramn.com">info@mantramn.com</a>
+        <a href="tel:+13055880282">+1 305 588-0282</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Mantra Media Network © 2026. All rights reserved.</span>
+      <div class="socials">
+        <a href="https://www.facebook.com/mantra.mn" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/mantra.mn/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/mantra-media-network/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header state on scroll + progress bar
+  const header = document.getElementById('siteHeader');
+  const progress = document.getElementById('progress');
+  function onScroll(){
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 40);
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.2, rootMargin:'0px 0px -8% 0px'});
+  revealEls.forEach(el=>io.observe(el));
+
+  // view toggling: home <-> contact, all in one file
+  const homeView = document.getElementById('top');
+  const contactView = document.getElementById('contactView');
+
+  function showContact(){
+    homeView.style.display = 'none';
+    contactView.style.display = 'block';
+    window.scrollTo({top:0, behavior:'instant'});
+    document.title = 'Contact — Mantra MN';
+  }
+  function showHome(){
+    contactView.style.display = 'none';
+    homeView.style.display = '';
+    document.title = 'Mantra MN — A Creative Company';
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+
+      if(id === 'contact-page'){
+        showContact();
+        history.pushState(null,'','#contact-page');
+        return;
+      }
+
+      if(contactView.style.display !== 'none'){ showHome(); }
+
+      const target = document.getElementById(id);
+      const offset = 90;
+      const top = target ? target.getBoundingClientRect().top + window.scrollY - offset : 0;
+      window.scrollTo({top, behavior:'smooth'});
+      history.pushState(null,'','#'+id);
+    });
+  });
+
+  window.addEventListener('popstate', ()=>{
+    if(location.hash === '#contact-page'){ showContact(); }
+    else { showHome(); }
+  });
+
+  if(location.hash === '#contact-page'){ showContact(); }
+
+  // contact form submission
+  const form = document.getElementById('contactForm');
+  if(form){
+    const submitBtn = document.getElementById('submitBtn');
+    const btnArrow = document.getElementById('btnArrow');
+    const errorEl = document.getElementById('formError');
+    const successEl = document.getElementById('successMsg');
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.firstElementChild.textContent = 'Sending...';
+      btnArrow.textContent = '';
+
+      try{
+        const data = Object.fromEntries(new FormData(form));
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if(!res.ok) throw new Error('Request failed');
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+      } catch(err){
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.firstElementChild.textContent = 'Send message';
+        btnArrow.textContent = '→';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
